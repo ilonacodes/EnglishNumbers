@@ -10,4 +10,12 @@ describe("English numbers", function() {
   it("is nine when 9", function() {
     expect(numberInEnglish(9)).toEqual("nine")
   })
+
+  it("is minus three when -3", function() {
+    expect(numberInEnglish(-3)).toEqual("minus three")
+  })
+
+  it("is minus seven when -7", function() {
+    expect(numberInEnglish(-7)).toEqual("minus seven")
+  })
 })
