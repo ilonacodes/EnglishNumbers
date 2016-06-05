@@ -26,4 +26,20 @@ describe("English numbers", function() {
   it("is seventeen when 17", function() {
     expect(numberInEnglish(17)).toEqual("seventeen")
   })
+
+  it("is minus seventeen when -17", function() {
+    expect(numberInEnglish(-17)).toEqual("minus seventeen")
+  })
+
+  it("is twenty when 20", function() {
+    expect(numberInEnglish(20)).toEqual("twenty")
+  })
+
+  it("is thirty when 30", function() {
+    expect(numberInEnglish(30)).toEqual("thirty")
+  })
+
+  it("is minus eighty when -80", function() {
+    expect(numberInEnglish(-80)).toEqual("minus eighty")
+  })
 })
