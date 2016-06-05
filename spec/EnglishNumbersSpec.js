@@ -18,4 +18,12 @@ describe("English numbers", function() {
   it("is minus seven when -7", function() {
     expect(numberInEnglish(-7)).toEqual("minus seven")
   })
+
+  it("is ten when 10", function() {
+    expect(numberInEnglish(10)).toEqual("ten")
+  })
+
+  it("is seventeen when 17", function() {
+    expect(numberInEnglish(17)).toEqual("seventeen")
+  })
 })
