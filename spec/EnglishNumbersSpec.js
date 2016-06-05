@@ -6,4 +6,8 @@ describe("English numbers", function() {
   it("is one when 1", function() {
     expect(numberInEnglish(1)).toEqual("one")
   })
+
+  it("is nine when 9", function() {
+    expect(numberInEnglish(9)).toEqual("nine")
+  })
 })
