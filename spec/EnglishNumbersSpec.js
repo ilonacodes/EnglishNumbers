@@ -1,5 +1,9 @@
-describe("Test framework", function() {
-  it("works", function() {
-    expect(2+2).toEqual(4)
+describe("English numbers", function() {
+  it("is zero when 0", function() {
+    expect(numberInEnglish(0)).toEqual("zero")
+  })
+
+  it("is one when 1", function() {
+    expect(numberInEnglish(1)).toEqual("one")
   })
 })
