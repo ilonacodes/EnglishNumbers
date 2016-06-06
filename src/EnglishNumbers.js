@@ -10,8 +10,22 @@ var minusPrefix = "minus "
 
 function numberInEnglish(number) {
   if (number < 0) return minusPrefix + numberInEnglish(-number)
+  if (number >= 100) return numberFrom100InEnglish(number)
   if (number >= 20) return numberFrom20To90InEnglish(number)
   return from0to19[number]
+}
+
+function numberFrom100InEnglish(number) {
+  var lastTwoDigits = number % 100
+  var firstDigit = Math.floor(number / 100)
+  var firstDigitInEnglish = numberInEnglish(firstDigit)
+  var hundreds = firstDigitInEnglish + " hundred"
+
+  if (lastTwoDigits == 0) {
+    return hundreds
+  }
+
+  return hundreds + " " + numberInEnglish(lastTwoDigits)
 }
 
 function numberFrom20To90InEnglish(number) {
@@ -23,5 +37,5 @@ function numberFrom20To90InEnglish(number) {
     return firstDigitInEnglish
   }
 
-  return firstDigitInEnglish + "-" + from0to19[lastDigit]
+  return firstDigitInEnglish + "-" + numberInEnglish(lastDigit)
 }

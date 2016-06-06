@@ -50,4 +50,20 @@ describe("English numbers", function() {
   it("is minus forty-two when -42", function() {
     expect(numberInEnglish(-42)).toEqual("minus forty-two")
   })
+
+  it("is one hundred when 100", function() {
+    expect(numberInEnglish(100)).toEqual("one hundred")
+  })
+
+  it("is one hundred one when 101", function() {
+    expect(numberInEnglish(101)).toEqual("one hundred one")
+  })
+
+  it("is one hundred twenty-seven when 127", function() {
+    expect(numberInEnglish(127)).toEqual("one hundred twenty-seven")
+  })
+
+  it("is two hundred forty-two when 242", function() {
+    expect(numberInEnglish(242)).toEqual("two hundred forty-two")
+  })
 })
