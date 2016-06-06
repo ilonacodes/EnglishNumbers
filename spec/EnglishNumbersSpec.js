@@ -42,4 +42,12 @@ describe("English numbers", function() {
   it("is minus eighty when -80", function() {
     expect(numberInEnglish(-80)).toEqual("minus eighty")
   })
+
+  it("is twenty-one when 21", function() {
+    expect(numberInEnglish(21)).toEqual("twenty-one")
+  })
+
+  it("is minus forty-two when -42", function() {
+    expect(numberInEnglish(-42)).toEqual("minus forty-two")
+  })
 })
