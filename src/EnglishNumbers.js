@@ -10,32 +10,28 @@ var minusPrefix = "minus "
 
 function numberInEnglish(number) {
   if (number < 0) return minusPrefix + numberInEnglish(-number)
-  if (number >= 100) return numberFrom100InEnglish(number)
-  if (number >= 20) return numberFrom20To90InEnglish(number)
+  if (number >= 1000000) return numberOfBase(number, 1000000, " million")
+  if (number >= 1000) return numberOfBase(number, 1000, " thousand")
+  if (number >= 100) return numberOfBase(number, 100, " hundred")
+  if (number >= 20) return numberOfBase(number, 10, "", "-", tensConverter)
   return from0to19[number]
 }
 
-function numberFrom100InEnglish(number) {
-  var lastTwoDigits = number % 100
-  var firstDigit = Math.floor(number / 100)
-  var firstDigitInEnglish = numberInEnglish(firstDigit)
-  var hundreds = firstDigitInEnglish + " hundred"
+function numberOfBase(number, base, baseInEnglish, divider, digitConverter) {
+  digitConverter = digitConverter || numberInEnglish
+  divider = divider || " "
 
-  if (lastTwoDigits == 0) {
-    return hundreds
+  var lastDigits = number % base
+  var firstDigits = Math.floor(number / base)
+  var firstDigitsInEnglish = digitConverter(firstDigits) + baseInEnglish
+
+  if (lastDigits == 0) {
+    return firstDigitsInEnglish
   }
 
-  return hundreds + " " + numberInEnglish(lastTwoDigits)
+  return firstDigitsInEnglish + divider + numberInEnglish(lastDigits)
 }
 
-function numberFrom20To90InEnglish(number) {
-  var lastDigit = number % 10
-  var firstDigit = Math.floor(number / 10)
-  var firstDigitInEnglish = from20to90[firstDigit - 2]
-
-  if (lastDigit == 0) {
-    return firstDigitInEnglish
-  }
-
-  return firstDigitInEnglish + "-" + numberInEnglish(lastDigit)
+function tensConverter(digit) {
+  return from20to90[digit - 2]
 }

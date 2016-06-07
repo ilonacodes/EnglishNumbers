@@ -66,4 +66,20 @@ describe("English numbers", function() {
   it("is two hundred forty-two when 242", function() {
     expect(numberInEnglish(242)).toEqual("two hundred forty-two")
   })
+
+  it("is one thousand when 1000", function() {
+    expect(numberInEnglish(1000)).toEqual("one thousand")
+  })
+
+  it("is one thousand six hundred forty-three when 1643", function() {
+    expect(numberInEnglish(1643)).toEqual("one thousand six hundred forty-three")
+  })
+
+  it("is two hundred fifty-seven thousand nine hundred thirty-eight when 257938", function() {
+    expect(numberInEnglish(257938)).toEqual("two hundred fifty-seven thousand nine hundred thirty-eight")
+  })
+
+  it("is nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine when 999999999", function() {
+    expect(numberInEnglish(999999999)).toEqual("nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine")
+  })
 })
